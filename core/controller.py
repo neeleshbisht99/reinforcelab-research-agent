@@ -10,7 +10,7 @@ from agenthub.planner import PlannerAgent
 from agenthub.explorer import ExplorerAgent
 from agenthub.summarizer import SummarizerAgent
 from agenthub.markdown import MarkdownAgent
-
+from core.safety import PromptInjectionGuard, blocked_prompt_response
 
 class ResearchController:
     def __init__(self):
@@ -39,11 +39,19 @@ class ResearchController:
         )
 
         self.markdown = MarkdownAgent(self.settings)
+        self.guard = PromptInjectionGuard()
 
     async def run_pipeline(self, prompt: str) -> Dict[str, Any]:
+        res = self.guard.validate_prompt(prompt)
+        if res.blocked:
+            return blocked_prompt_response(res)
+
         state = init_state(prompt)
 
         self.planner.run(state)
+        plan_res = self.guard.validate_planner(state)
+        if plan_res.blocked:
+            return blocked_prompt_response(plan_res)
         await self.explorer.run(state)
         self.summarizer.run(state)
         self.markdown.run(state)
