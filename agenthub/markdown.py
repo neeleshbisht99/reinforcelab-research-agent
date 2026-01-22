@@ -1,5 +1,11 @@
+from core.config import Settings
+
+
 class MarkdownAgent:
-    def run(self, state):
+    def __init__(self, settings: Settings):
+        self.settings = settings
+
+    def run(self, state: dict):
         prompt = state["prompt"]
         summary = state.get("summary_structured", {}) or {}
 

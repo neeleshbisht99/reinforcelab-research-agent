@@ -1,9 +1,8 @@
 import json
 
 class SummarizerAgent:
-    def __init__(self, client, model):
+    def __init__(self, client):
         self.client = client
-        self.model = model
 
     def run(self, state):
         prompt = state["prompt"]
@@ -34,62 +33,56 @@ class SummarizerAgent:
         )
 
         user = f"""
-        Topic:
-        {prompt}
+            Topic:
+            {prompt}
 
-        Evidence (JSON list of {{agent,url,quote}}):
-        {json.dumps(trimmed, ensure_ascii=False, indent=2)}
+            Evidence (JSON list of {{agent,url,quote}}):
+            {json.dumps(trimmed, ensure_ascii=False, indent=2)}
 
-        Produce ONLY valid JSON (no markdown, no extra text) with this schema:
+            Produce ONLY valid JSON (no markdown, no extra text) with this schema:
 
-        {{
-        "title": "short title",
-        "main_summary": "2-5 sentences max",
-        "key_insights": [
+            {{
+            "title": "short title",
+            "main_summary": "2-5 sentences max",
+            "key_insights": [
             {{"insight": "1-2 sentence insight", "sources": ["url1","url2"]}}
-        ],
-        "sections": [
+            ],
+            "sections": [
             {{
-            "heading": "Section heading",
-            "bullets": [
+                "heading": "Section heading",
+                "bullets": [
                 {{"point": "1-2 sentence point", "sources": ["url"]}}
-            ]
+                ]
             }}
-        ],
-        "tables": [
+            ],
+            "tables": [
             {{
-            "title": "Table title",
-            "columns": ["Col1","Col2","Col3"],
-            "rows": [
+                "title": "Table title",
+                "columns": ["Col1","Col2","Col3"],
+                "rows": [
                 ["...", "...", "..."]
-            ],
-            "sources": ["url1"]
+                ],
+                "sources": ["url1"]
             }}
-        ],
-        "references": ["unique_url1", "unique_url2"]
-        }}
-
-        Rules:
-        - Every insight/point must include at least 1 source URL from the evidence list.
-        - Only use URLs present in evidence.
-        - If evidence is weak, say so in main_summary and create a section named "Limitations".
-        """.strip()
-
-        resp = self.client.responses.create(
-            model=self.model,
-            input=[
-                {"role": "system", "content": system},
-                {"role": "user", "content": user},
             ],
-        )
+            "references": ["unique_url1", "unique_url2"]
+            }}
 
-        text = (resp.output_text or "").strip()
+            Rules:
+            - Every insight/point must include at least 1 source URL from the evidence list.
+            - Only use URLs present in evidence.
+            - If evidence is weak, say so in main_summary and create a section named "Limitations".
+            """.strip()
+
+        text = self.client.complete(system=system, user=user)
+
         try:
             state["summary_structured"] = json.loads(text)
         except Exception:
             refs = []
             for e in trimmed:
-                if e.get("url"): refs.append(e["url"])
+                if e.get("url"):
+                    refs.append(e["url"])
             refs = list(dict.fromkeys(refs))
             state["summary_structured"] = {
                 "title": prompt[:80],

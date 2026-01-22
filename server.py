@@ -31,5 +31,7 @@ async def research(req: ResearchRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-    state["took_seconds"] = round(time.time() - t0, 2)
-    return {"final_report": state.get("final_report", ""), **state}
+    return {
+            "final_report": state.get("final_report", ""),
+            "took_seconds": round(time.time() - t0, 2),
+        }
