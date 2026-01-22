@@ -1,15 +1,16 @@
 import json
 
 class SummarizerAgent:
-    def __init__(self, client):
+    def __init__(self, client, settings):
         self.client = client
+        self.settings = settings
 
     def run(self, state):
         prompt = state["prompt"]
         evidence = state.get("evidence", []) or []
 
-        MAX_ITEMS = 80  # get from config later
-        MAX_CHARS = 18000  # get from config later
+        MAX_ITEMS = self.settings.max_evidence_items
+        MAX_CHARS = self.settings.max_evidence_chars
 
         trimmed = []
         total = 0

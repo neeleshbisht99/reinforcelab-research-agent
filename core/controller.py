@@ -34,7 +34,8 @@ class ResearchController:
         )
 
         self.summarizer = SummarizerAgent(
-            client=self.openai_client
+            client=self.openai_client,
+            settings=self.settings,
         )
 
         self.markdown = MarkdownAgent(self.settings)
