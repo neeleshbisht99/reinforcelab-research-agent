@@ -355,9 +355,9 @@ def markdown_agent(state):
     state["final_report"] = "\n".join(md).strip()
 
 async def run_controller(state):
-    # planner_agent(state)
-    # await run_exploration(state)
-    # summarizer_agent(state)
+    planner_agent(state)
+    await run_exploration(state)
+    summarizer_agent(state)
     markdown_agent(state)
 
 
@@ -367,20 +367,20 @@ if __name__ == "__main__":
         print('Usage: python main.py "your research prompt"')
         raise SystemExit(1)
 
-    # prompt = sys.argv[1].strip()
-    # state = init_state(prompt)
+    prompt = sys.argv[1].strip()
+    state = init_state(prompt)
 
     # use cached state - remove this
-    with open('state.json', 'r') as file:
-        data_dict = json.load(file)
-    state = data_dict
+    # with open('state.json', 'r') as file:
+    #     data_dict = json.load(file)
+    # state = data_dict
 
     asyncio.run(run_controller(state))
 
     ### cache state remove this
-    file_path = "state.json"
-    with open(file_path, "w") as json_file:
-        json.dump(state, json_file, indent=4)
+    # file_path = "state.json"
+    # with open(file_path, "w") as json_file:
+    #     json.dump(state, json_file, indent=4)
 
     print("Success")
 

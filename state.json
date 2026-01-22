@@ -1,0 +1,402 @@
+{
+    "prompt": "tell me about the societal impact of AI",
+    "plan": [
+        "Define key societal impact dimensions of AI: ethics, employment, privacy, inequality, governance.",
+        "Survey academic literature for theoretical frameworks and empirical studies on AI's societal effects.",
+        "Analyze industry reports and case studies illustrating AI deployment impacts across sectors.",
+        "Compare and contrast academic insights with real-world industry practices and innovations.",
+        "Identify gaps in research and emerging trends for policy, regulation, and social adaptation."
+    ],
+    "tasks": [
+        {
+            "task": "Compile and review peer-reviewed articles, conference papers, and meta-analyses focused on AI's societal impact from databases like IEEE Xplore, Google Scholar, and ACM Digital Library.",
+            "tag": "research"
+        },
+        {
+            "task": "Collect industry whitepapers, corporate social responsibility reports, and AI ethics guidelines from leading technology firms and consulting agencies.",
+            "tag": "industry"
+        },
+        {
+            "task": "Catalog key societal impact areas related to AI including employment disruption, privacy concerns, bias and fairness, human autonomy, and regulatory challenges.",
+            "tag": "general"
+        },
+        {
+            "task": "Extract case studies demonstrating AI\u2019s impact on workforce dynamics across different industries such as manufacturing, services, healthcare, and finance.",
+            "tag": "industry"
+        },
+        {
+            "task": "Synthesize academic theoretical perspectives with empirical evidence from industry to produce a balanced overview of societal AI impacts.",
+            "tag": "general"
+        },
+        {
+            "task": "Identify emerging research gaps and industry trends that inform future policy and governance frameworks for responsible AI adoption.",
+            "tag": "research"
+        }
+    ],
+    "search_log": [
+        {
+            "agent": "research",
+            "objective": "Compile and review peer-reviewed articles, conference papers, and meta-analyses focused on AI's societal impact from databases like IEEE Xplore, Google Scholar, and ACM Digital Library.",
+            "urls": [
+                "https://www.sciencedirect.com/science/article/pii/S2949697724000055",
+                "https://ojs.aaai.org/index.php/AAAI/issue/view/650",
+                "https://ieeexplore.ieee.org/document/10743405/",
+                "https://ai.google/societal-impact/",
+                "https://link.springer.com/conference/siai"
+            ]
+        },
+        {
+            "agent": "industry",
+            "objective": "Collect industry whitepapers, corporate social responsibility reports, and AI ethics guidelines from leading technology firms and consulting agencies.",
+            "urls": [
+                "https://www.sciencedirect.com/science/article/pii/S2666389923002416",
+                "https://go.abiresearch.com/lp-lwhitepaper-26-technology-companies-leading-the-way-in-2025?hsLang=en",
+                "https://www.ai21.com/knowledge/ai-governance-frameworks/",
+                "https://ir.huronconsultinggroup.com/esg",
+                "https://professional.dce.harvard.edu/blog/building-a-responsible-ai-framework-5-key-principles-for-organizations/"
+            ]
+        },
+        {
+            "agent": "general",
+            "objective": "Catalog key societal impact areas related to AI including employment disruption, privacy concerns, bias and fairness, human autonomy, and regulatory challenges.",
+            "urls": [
+                "https://www.ibm.com/think/insights/ai-privacy",
+                "https://pmc.ncbi.nlm.nih.gov/articles/PMC8576577/",
+                "https://ai.google/societal-impact/",
+                "https://www.blueprism.com/resources/blog/bias-fairness-ai/",
+                "https://www.imf.org/en/blogs/articles/2026/01/14/new-skills-and-ai-are-reshaping-the-future-of-work"
+            ]
+        },
+        {
+            "agent": "industry",
+            "objective": "Extract case studies demonstrating AI\u2019s impact on workforce dynamics across different industries such as manufacturing, services, healthcare, and finance.",
+            "urls": [
+                "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work",
+                "https://www.automate.org/ai/industry-insights/case-studies-ai-advanced-manufacturing",
+                "https://digitaldefynd.com/IQ/ai-in-finance-case-studies/",
+                "https://pmc.ncbi.nlm.nih.gov/articles/PMC11344516/",
+                "https://www.bls.gov/opub/mlr/2025/article/incorporating-ai-impacts-in-bls-employment-projections.htm"
+            ]
+        },
+        {
+            "agent": "general",
+            "objective": "Synthesize academic theoretical perspectives with empirical evidence from industry to produce a balanced overview of societal AI impacts.",
+            "urls": [
+                "https://pmc.ncbi.nlm.nih.gov/articles/PMC7605294/",
+                "https://mitsloan.mit.edu/ideas-made-to-matter/beyond-algorithm-ais-societal-impact",
+                "https://www.asccc.org/content/theory-change-framework-leveraging-ai-societal-innovation-equity-and-sustainability",
+                "https://pmc.ncbi.nlm.nih.gov/articles/PMC11830699/",
+                "https://www.amacad.org/daedalus/ai-society"
+            ]
+        },
+        {
+            "agent": "research",
+            "objective": "Identify emerging research gaps and industry trends that inform future policy and governance frameworks for responsible AI adoption.",
+            "urls": [
+                "https://www.sciencedirect.com/science/article/pii/S0963868724000672",
+                "https://assets.kpmg.com/content/dam/kpmgsites/ae/pdf/the-future-of-ai-governance.pdf.coredownload.inline.pdf",
+                "https://www.aidataanalytics.network/data-science-ai/news-trends/less-than-half-of-businesses-have-an-ai-governance-policy",
+                "https://www.itu.int/epublications/en/publication/the-annual-ai-governance-report-2025-steering-the-future-of-ai/en",
+                "https://www.weforum.org/stories/2025/09/responsible-ai-governance-innovations/"
+            ]
+        }
+    ],
+    "evidence": [
+        {
+            "agent": "research",
+            "url": "https://ojs.aaai.org/index.php/AAAI/issue/view/650",
+            "quote": "Section Title: Vol. 39 No. 27: AAAI-25 Special Track on AI for Social Impact, Senior Member Presentations, New Faculty Highlights, Journal Track\nContent:\nThe conference scope included machine learning, natural language processing, computer vision, data mining, multiagent systems, knowledge representation, human-in-the-loop AI, search, planning, reasoning, robotics and perception, and ethics. In addition to fundamental work that focused on any one of these areas, AAAI-25 encouraged work across technical areas of AI, (e.g., machine learning and computer vision; computer vision and natural language processing; or machine learning and planning), bridges between AI and a related research area (e.g., neuroscience; cognitive science) or developing AI techniques in the context of important application domains, such as healthcare, sustainability, transportation, and commerce.\nThe conference also continued its tradition of collocating with the long-running Innovative Applications of Artificial Intelligence conference (IAAI-25). IAAI-25 was cochaired by Jan Seyler (Festo, Germany), Serdar Kadioglu (Brown University, USA) and Sean McGregor (UL Research Institutes, USA). The IAAI-25 papers are included in this proceedings. Also included are the papers from the Symposium on Educational Advances in Artificial Intelligence (EAAI-25). EAAI-25 was cochaired by Stephanie Rosenthal (Carnegie Mellon University, USA) and Narges Norouzi (University of California Berkley, USA)"
+        },
+        {
+            "agent": "research",
+            "url": "https://ieeexplore.ieee.org/document/10743405/",
+            "quote": "Section Title: Understanding the Societal Impacts of Artificial Intelligence and Machine Learning on Employment and Workforce Dynamics > Abstract:\nContent:\nThe advent of AI and ML has caused a dramatic transformation in the workplace, with far-reaching social and economic consequences for the nature of work and the workforce... Show More"
+        },
+        {
+            "agent": "research",
+            "url": "https://link.springer.com/conference/siai",
+            "quote": "Explore groundbreaking research and insights presented in conference proceedings published with Springer Nature.\nInternational Conference on Social Impact of AI | Springer Nature Link"
+        },
+        {
+            "agent": "research",
+            "url": "https://ai.google/societal-impact/",
+            "quote": "Section Title: ... > As AI redefines what\u2019s possible, it also creates new ways to be helpful. Helping solve society\u2019s challenges has always been core to our work.\nContent:\nAI can be applied in ways that benefit humanity. Our mission is to demonstrate AI\u2019s societal benefit by enabling real-world value, with projects spanning work in accessibility, science, education, economic impact, and society. We believe that the best way to drive positive change in underserved communities is by partnering with change-makers and the organizations they serve.\nchevron_left\n[Access]()\n[Climate]()\n[Economic Opportunity]()\n[Government Innovation]()\n[Healthcare]()\n[Learning and education]()\n[Science]()\nchevron_right"
+        },
+        {
+            "agent": "research",
+            "url": "https://www.sciencedirect.com/science/article/pii/S2949697724000055",
+            "quote": "Section Title: Societal impacts of artificial intelligence: Ethical, legal, and governance issues > Abstract\nContent:\nArtificial intelligence (AI) is quickly changing the way we work and the way we live. The emergence of ChatGPT has thrust AI, especially Generative AI, into the spotlight. The societal impact of AI is on most people's minds. This article presents several research projects on how AI impacts work and society. Three research works are discussed in this article. The first study develops a theoretical framework structuring the legal and ethical objectives that are needed and the means to achieve them. The second study concentrates on bias and discrimination issues embedded in AI applications. It focuses on enhancing the collaboration between AI users and AI systems to alleviate bias and discrimination issues. The third study focuses on the governance of AI, and the study will design and develop an integrated AI governance framework to help guide the design and development of AI applications and facilitate the evolutions and revolutions of ethical AI systems.\nPrevious article in issue\nNext article in issue"
+        },
+        {
+            "agent": "industry",
+            "url": "https://go.abiresearch.com/lp-lwhitepaper-26-technology-companies-leading-the-way-in-2025?hsLang=en",
+            "quote": "Section Title: 26 Technology Companies Leading the Way in 2025\nContent:\nAs the pace of innovation accelerates, the most successful companies are not just keeping up\u2014they\u2019re leading the way. In this whitepaper, ABI Research highlights 26 technology vendors that are shaping the future of their industries through standout execution, vision, and impact across sectors like AI, semiconductors, wireless, industrial automation, and sustainability. Among these standouts are seven Overall Leaders, 16 Leaders, 21 Top Innovators, and 21 Top Implementers. To learn more about them and our findings, download the whitepaper."
+        },
+        {
+            "agent": "industry",
+            "url": "https://professional.dce.harvard.edu/blog/building-a-responsible-ai-framework-5-key-principles-for-organizations/",
+            "quote": "Section Title: ... > [Ethics in AI: Why It Matters](https://professional.dce.harvard.edu/blog/ethics-in-ai-why-it-matters/)\nContent:\nAs AI corporate usage ramps up, institutionalizing ethical systems and gut checks are becoming increasingly important.\n[](https://professional.dce.harvard.edu/blog/ethics-in-ai-why-it-matters/)\n[Get Info](https://professional.dce.harvard.edu/request-information/)\nClose\nPrevious Next\n/"
+        },
+        {
+            "agent": "industry",
+            "url": "https://ir.huronconsultinggroup.com/esg",
+            "quote": "specialized\nin your industry\n[Insights](https://www.huronconsultinggroup.com/insights)\n[All Insights](https://www.huronconsultinggroup.com/insights)\n[Articles](https://www.huronconsultinggroup.com/insights:templatecaption=%5BArticle%5D)\n[Case Studies](https://www.huronconsultinggroup.com/insights:templatecaption=%5BCase%20Study%5D)\n[Research](https://www.huronconsultinggroup.com/insights:templatecaption=%5BPrimary%20Research%5D)\nGet the latest insights and\nupdates from our experts\n[Careers](https://www.huronconsultinggroup.com/company/careers)\n[Careers](https://www.huronconsultinggroup.com/company/careers)\n[Join Our Talent Community](https://huron.wd1.myworkdayjobs.com/en-US/huroncareers/introduceYourself)\n[Search Open Positions](https://huron.wd1.myworkdayjobs.com/huroncareers)\n[Benefits](https://www.huronconsultinggroup.com/company/careers/our-commitment)\n[About Us](https://www.huronconsultinggroup.com/company/about-us)\n[About Us](https://www.huronconsultinggroup.com/company/about-us)\n[The Huron Difference](https://www.huronconsultinggroup.com/company/about-us/the-huron-difference)\n[Leadership](https://www.huronconsultinggroup.com/company/about-us/our-people-values)\n[Making an Impact](https://www.huronconsultinggroup.com/company/about-us/making-an-impact)\n[Our Results](https://www.huronconsultinggroup.com/company/about-us/our-results)\nInvestor Relations\n[Locations](https://www.huronconsultinggroup.com/company/about-us/locations)\n[Media"
+        },
+        {
+            "agent": "industry",
+            "url": "https://www.sciencedirect.com/science/article/pii/S2666389923002416",
+            "quote": "Section Title: Article > Summary\nContent:\nThe utilization of artificial intelligence (AI) applications has experienced tremendous growth in recent years, bringing forth numerous benefits and conveniences. However, this expansion has also provoked ethical concerns, such as privacy breaches, algorithmic discrimination, security and reliability issues, transparency, and other unintended consequences. To determine whether a global consensus exists regarding the ethical principles that should govern AI applications and to contribute to the formation of future regulations, this paper conducts a meta-analysis of 200 governance policies and ethical guidelines for AI usage published by public bodies, academic institutions, private companies, and civil society organizations worldwide. We identified at least 17 resonating principles prevalent in the policies and guidelines of our dataset, released as an open source database and tool. We present the limitations of performing a global-scale analysis study paired with a critical analysis of our findings, presenting areas of consensus that should be incorporated into future regulatory efforts.\nPrevious article in issue\nNext article in issue"
+        },
+        {
+            "agent": "industry",
+            "url": "https://www.ai21.com/knowledge/ai-governance-frameworks/",
+            "quote": "Section Title: 9 Key AI Governance Frameworks in 2025 > 9 Key legal and regulatory AI governance frameworks for 2025 > 6. U.S. State regulation\nContent:\nState-level regulations are evolving rapidly and are enforceable locally. These laws regulate the use of AI in areas such as hiring, surveillance, and consumer protection.\nFor example, Colorado\u2019s [\u201cConcerning Consumer Protections in Interactions with Artificial Intelligence Systems Act\u201d (Colorado AI Act or CAIA)](https://leg.colorado.gov/bills/sb24-205) prohibits algorithmic discrimination in high-risk AI systems, including those used in healthcare, recruitment, and education.\nIn California, proposed legislation such as the [Automated Decision Systems Accountability Act](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201920200AB2269) seeks to increase transparency and accountability in the use of AI for consequential decisions, particularly in employment and housing."
+        },
+        {
+            "agent": "general",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8576577/",
+            "quote": "Section Title: AI Systems and Respect for Human Autonomy > Introduction\nContent:\nIt is relatively clear that AI technology can make a difference to the conditions of human autonomy, and it would be surprising if the difference it makes could not be negative or positive. The more ubiquitous AI technology becomes, the more important it is to understand its ethical effects. And as, indeed, \u201cdigital technologies now mediate most human experience\u201d ( [Calvo et al., 2020]() ), AI technology is already quite ubiquitous. From decision and recommender systems to self-tracking technologies and autonomous vehicles, AI systems can have more or less subtle, but nonetheless, far-reaching effects on how humans deliberate and behave."
+        },
+        {
+            "agent": "general",
+            "url": "https://www.blueprism.com/resources/blog/bias-fairness-ai/",
+            "quote": "Section Title: Share > What Is Fairness in AI? > Importance of AI fairness\nContent:\nBesides the legal consequences of unfair AI, AI fairness is also important if we want the widespread acceptance and adoption of AI systems. This is because we want to be able to trust that AI can make the right and fair decisions. Especially if we plan on introducing AI into business and more complex operations. For example, we would want AI fairness so that:\nCustomer service chatbots provide consistent and unbiased support.\nAI algorithms recommend products fairly.\nLoan approvals are based on impartial financial factors.\nHealthcare diagnoses and treatment recommendations are equitable."
+        },
+        {
+            "agent": "general",
+            "url": "https://www.imf.org/en/blogs/articles/2026/01/14/new-skills-and-ai-are-reshaping-the-future-of-work",
+            "quote": "Section Title: ... > Policy choices will determine whether workers and firms are adequately prepared for the AI revolution\nContent:\nThis wage bump can boost the local economy, our research shows. Workers with more money in their pockets spend more at local businesses, which in turn hire more staff to meet demand. In the US, for example regions with higher adoption of new skills saw employment rise by 1.3 percent for each 1 percentage point increase in the share of job postings that require new skills over the past decade.\nHowever high-skill and low-skill workers tend to gain the most while middle-skill roles, like routine office jobs are being squeezed.\nThe picture for **AI-related skills** is even more complex. While these skills command wage premiums, they have not contributed to employment growth so far, like other new skills have. In fact, **employment levels in AI-vulnerable occupations** are lower in regions with high demand for AI skills\u2014 **3.6 percent lower after five years** than in regions with less demand for these skills. That\u2019s a challenge for young people starting their careers as entry-level jobs have higher exposure to AI. These findings align with [emerging evidence](https://digitaleconomy.stanford.edu/publications/canaries-in-the-coal-mine/) from the US that generative AI adoption reduces entry-level hiring\u2014especially when tasks can be automated.\n**Global readiness**"
+        },
+        {
+            "agent": "general",
+            "url": "https://www.ibm.com/think/insights/ai-privacy",
+            "quote": "Section Title: Exploring privacy issues in the age of AI > What is AI privacy?\nContent:\nAI privacy is the practice of protecting personal or sensitive information collected, used, shared or stored by AI.\nAI privacy is closely linked to [data privacy](https://www.ibm.com/think/topics/data-privacy?) . Data privacy, also known as information privacy, is the principle that a person should have control over their [personal data](https://www.ibm.com/think/topics/digital-footprint?) . This control includes the ability to decide how organizations collect, store and use their data. But the concept of data privacy predates AI and how people think of data privacy has evolved with the advent of AI.\n\u201cTen years ago, most people thought about data privacy in terms of online shopping. They thought, \u2018I don't know if I care if these companies know what I buy and what I'm looking for, because sometimes it's helpful,\u2019\u201d Jennifer King, a fellow at the Stanford University Institute for Human-Centered Artificial Intelligence, explained in an interview posted to the institute\u2019s website. 1\n\u201cBut now we've seen companies shift to this ubiquitous data collection that trains AI systems,\u201d King said, \u201cwhich can have major impact across society, especially our civil rights.\u201d\nAI Academy"
+        },
+        {
+            "agent": "industry",
+            "url": "https://www.bls.gov/opub/mlr/2025/article/incorporating-ai-impacts-in-bls-employment-projections.htm",
+            "quote": "Section Title: Incorporating AI impacts in BLS employment projections: occupational case studies\nContent:\nDiscussions about advances in artificial intelligence (AI) have become commonplace. In recent years, such advances have received constant news coverage, especially since the deployment of Open AI\u2019s ChatGPT in November 2022. [1]() ChatGPT, a natural language processing tool driven by AI technology that allows users to have humanlike conversations, was the first to offer many users the opportunity to directly experience the potential power of AI in their lives. Millions of Americans have since used ChatGPT. [2]() Although AI and chatbots are not new, ChatGPT and similar tools have opened a new portal into the world of large language models (LLMs) and their wide-ranging applications. [3]() Generative AI (GenAI) tools are becoming increasingly powerful in creating prose, images, videos, and sound. Because of the sheer potential of these tools, many people have been asking how they might affect our future, including that of workers and employment."
+        },
+        {
+            "agent": "industry",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11344516/",
+            "quote": "Section Title: ... > Exacerbation of feelings of patient-healthcare worker alienation\nContent:\nWidespread integration of AI in healthcare could intensify feelings of alienation between patients and healthcare workers. As AI assumes greater responsibilities, the essential human touch in patient care might become less prevalent, potentially diminishing patient satisfaction and trust. [36]() Additionally, healthcare workers may feel marginalised by AI technology, concerned about job displacement or the devaluation of their professional skills. This concern is underscored by developments such as generative AI nurses, which operate at significantly lower costs compared with human nurses. [37]() Such cost efficiencies may pressure healthcare systems to view human workers as replaceable elements within AI-driven workflows. This is just one of many concerns that the deployment of AI could lead healthcare providers and institutions to prioritise financial efficiencies at the expense of meaningful improvements in patient care (ie, the pressure to streamline operations, reduce costs, and boost revenues might overshadow the potential of these technologies to enhance care quality or improve patient outcomes)."
+        },
+        {
+            "agent": "industry",
+            "url": "https://www.automate.org/ai/industry-insights/case-studies-ai-advanced-manufacturing",
+            "quote": "Section Title: Artificial Intelligence and the AI Smackdown: Case Studies in Implementation of AI in Advanced Manufacturing\nContent:\nArtificial intelligence (AI) can be traced to the father of computer science, [Alan Turing](https://www.turing.ac.uk/research/research-programmes/artificial-intelligence) , who first posed the question, \u201cCan machines think?\u201d in 1950 in his seminal paper, \u201cComputing Machinery and Intelligence.\u201d The continued impact of the pandemic, chronic labor shortages, and supply chain issues is changing the interest in AI, and spurring a digital transformation. To look at the current state of AI and its potential, Jim Beretta of Customer Attraction recently hosted a [webinar](https://www.automate.org/ai/webinars/artificial-intelligence-and-the-ai-smackdown-case-studies-in-implementation-of-ai-in-advanced-manufacturing) for the [Association for Advancing Automation (A3)](https://www.automate.org/) , tapping into the expertise of three leaders in the field of AI. \u201cThere is a prevailing misconception that AI is still a \u2018new\u2019 or emerging technology. One of our first tasks when meeting with a potential customer is to demonstrate how mature AI is. Many customers are wary of AI, and are not sure it can be trusted,\u201d said Hugues Foltz, co-owner and executive vice president of [Vooban](https://www.automate.org/companies/vooban) ."
+        },
+        {
+            "agent": "industry",
+            "url": "https://digitaldefynd.com/IQ/ai-in-finance-case-studies/",
+            "quote": "Please wait while your request is being verified..."
+        },
+        {
+            "agent": "industry",
+            "url": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work",
+            "quote": "Section Title: Superagency in the workplace: Empowering people to unlock AI\u2019s full potential > Delivering speed and safety > The dilemma of speed versus safety\nContent:\nThe exhibit shows the share of US employees with concerns regarding gen AI, through a series of proportional area charts, each representing a specific risk associated with gen AI. The size of each chart indicates the percentage of US employees who cite that risk as a concern. Cybersecurity risks are cited by 51 percent of respondents, inaccuracies by 50 percent, and concerns about personal privacy by 43 percent. Intellectual property infringement is a concern for 40 percent of respondents, followed by workforce displacement (35 percent), explainability (34 percent), and equity and fairness (30 percent). Less prominent but still significant concerns were regulatory compliance issues (28 percent), national security (24 percent), damage to organizational reputation (16 percent), environmental impact (15 percent), physical safety (14 percent), and political stability (13 percent). Source: McKinsey US employee survey, Oct\u2013Nov 2024. This image description was completed with the assistance of Writer, a gen AI tool.\nImage description ends."
+        },
+        {
+            "agent": "general",
+            "url": "https://www.asccc.org/content/theory-change-framework-leveraging-ai-societal-innovation-equity-and-sustainability",
+            "quote": "Section Title: ... > Introducing the Theory of Change Framework for AI-Driven Social Impact\nContent:\nSecurity protocols should be robust to prevent data breaches and unauthorized access. Environmental Impact: The development and deployment of AI technologies in education should account for their environmental footprint. Minimizing energy consumption during AI model training and deployment, as well as responsibly managing electronic waste, can help mitigate AI's environmental impact. Long-term Sustainability: AI solutions should be designed with long-term sustainability in mind, both in terms of their economic feasibility and their ability to adapt to the evolving educational landscape. Scalable and cost-effective solutions will ensure that they remain viable and beneficial to students and institutions over time."
+        },
+        {
+            "agent": "general",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11830699/",
+            "quote": "Section Title: Exploring the effects of artificial intelligence on student and academic well-being in higher education: a mini-review > Discussion\nContent:\nIn practice, it means that educational institutions should consider balancing AI integration with human-centred approaches. While AI can enhance efficiency and personalize learning, over-reliance on it may compromise essential interpersonal skills and emotional intelligence. As [Zhai et al. (2024)]() suggest, educational approaches should highlight the need to critically assess AI-generated content, compare it with insights from human sources, and recognize AI\u2019s limitations. They also emphasize that it is essential to promote reflection on the inherent biases in AI outputs and involving students in tasks that require thoughtful analysis and integration of information from varied sources can cultivate a more informed and discerning use of AI tools Moreover, safeguarding data privacy should be a priority to mitigate the anxiety associated with surveillance. Institutions should also address the potential job displacement issues by upskilling staff to work alongside AI rather than be replaced by it since as [Al-Zahrani (2024)]() points out, enhancements in AI transparency could simultaneously support teacher professional development and foster better student outcomes."
+        },
+        {
+            "agent": "general",
+            "url": "https://www.amacad.org/daedalus/ai-society",
+            "quote": "Section Title: AI & Society\nContent:\nEditor\n[James M. Manyika](/person/james-m-manyika)\nTopics\n[Science & Technology](/daedalus/browse?type=2&field_topics=17)\n[View PDF file](/sites/default/files/daedalus/downloads/Daedalus_Sp22_AI-and-Society.pdf)\nShare\n[Back to browse all issues](/daedalus/browse)\nShare\nAI is transforming our relationships with technology and with others, our senses of self, as well as our approaches to health care, banking, democracy, and the courts. But while AI in its many forms has become ubiquitous and its benefits to society and the individual have grown, its impacts are varied. Concerns about its unintended effects and misuses have become paramount in conversations about the successful integration of AI in society. This volume explores the many facets of artificial intelligence: its technology, its potential futures, its effects on labor and the economy, its relationship with inequalities, its role in law and governance, its challenges to national security, and what it says about us as humans."
+        },
+        {
+            "agent": "general",
+            "url": "https://mitsloan.mit.edu/ideas-made-to-matter/beyond-algorithm-ais-societal-impact",
+            "quote": "Section Title: Beyond the algorithm: AI\u2019s societal impact > Why It Matters []()\nContent:\nopen share links close share links\nThere\u2019s a huge appetite for artificial intelligence algorithms to generate predictive insights and achieve efficiency and productivity gains. But as AI is used in new ways, it\u2019s important to explore the technology\u2019s broad implications.\nAI at Work Research and insights powering the intersection of AI and business, delivered monthly.\nYes, I\u2019d also like to subscribe to the Thinking Forward newsletter\nEmail\nLeave this field blank\nMIT Sloan professor Manish Raghavan, whose faculty appointment is shared with the MIT Schwarzman College of Computing, has been working to understand the societal implications of AI, which can be challenging: The technology is being applied to solve a diverse set of problems that involve varying levels of risk.\n\u201cIf we put AI in a medical domain, that\u2019s going to look very different than putting it in an employment domain and different too from building code assistance for software engineers,\u201d Raghavan said during a talk at the [2025 MIT AI Conference](https://ilp.mit.edu/AI25) . \u201cThere are different risks and idiosyncratic problems. We need to incorporate domain expertise in order to make good decisions.\u201d\nRaghavan discussed how his research in using AI for medicine, hiring, and creative pursuits shows both the promise of the technology, such as making better decisions and addressing bias, and some limits and concerns, such as a lack of creativity."
+        },
+        {
+            "agent": "general",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7605294/",
+            "quote": "Section Title: The impact of artificial intelligence on human society and bioethics > T HE IMPACT OF ARTIFICIAL INTELLIGENCE ON HUMAN SOCIETY > Negative impact\nContent:\nA huge social change that disrupts the way we live in the human community will occur. Humankind has to be industrious to make their living, but with the service of AI, we can just program the machine to do a thing for us without even lifting a tool. Human closeness will be gradually diminishing as AI will replace the need for people to meet face to face for idea exchange. AI will stand in between people as the personal gathering will no longer be needed for communication\nUnemployment is the next because many works will be replaced by machinery. Today, many automobile assembly lines have been filled with machineries and robots, forcing traditional workers to lose their jobs. Even in supermarket, the store clerks will not be needed anymore as the digital device can take over human labor\nWealth inequality will be created as the investors of AI will take up the major share of the earnings. The gap between the rich and the poor will be widened. The so-called \u201cM\u201d shape wealth distribution will be more obvious\nNew issues surface not only in a social sense but also in AI itself as the AI being trained and learned how to operate the given task can eventually take off to the stage that human has no control, thus creating un-anticipated problems and consequences."
+        },
+        {
+            "agent": "research",
+            "url": "https://www.aidataanalytics.network/data-science-ai/news-trends/less-than-half-of-businesses-have-an-ai-governance-policy",
+            "quote": "Section Title: Less than half of businesses have an AI governance policy > Why is AI governance so important?\nContent:\n\u201cGovernance isn\u2019t optional, it\u2019s your AI backbone,\u201d [according to Lee Bogner](https://www.aidataanalytics.network/data-science-ai/articles/what-is-ai-governance) , global chief generative AI and AI strategic enterprise architect at Mars. \u201cWithout it, you\u2019re risking bias, compliance failures and technical drift.\u201d\nGovernance should be a key aspect of any AI program, agreed Andreas Welsch, thought leader and author of the [*AI Leadership Handbook*](https://www.amazon.co.uk/dp/1962280500?tag=uklinktagbk-21&geniuslink=true) . \u201cAfter all, you need to know what you\u2019re building towards and why, and who\u2019s involved. Putting governance in place ensures that roles and responsibilities are clearly defined and you can track the progress of your AI projects and their estimated versus realized value.\u201d\nWhat\u2019s more, having a well-run governance process is also the foundation for compliance with rules and regulations. AI risks can be assessed and decisions can be taken whether or not to pursue an AI project to begin with, he added.\n[**Register for All Access: AI in Business Transformation 2025!**](https://www.processexcellencenetwork.com/events-business-transformation)"
+        },
+        {
+            "agent": "research",
+            "url": "https://www.itu.int/epublications/en/publication/the-annual-ai-governance-report-2025-steering-the-future-of-ai/en",
+            "quote": "Section Title: ... > 2.1 Labor Market Transformation\nContent:\nDisplacement of Labor\nThe displacement effect of AI is particularly pronounced in roles involving routine and repetitive tasks, where automation technologies can substitute for human labor. Workers in sectors such as manufacturing, clerical work, and low-skill services are especially vulnerable, as AI systems become more capable of performing structured, rule-based tasks efficiently and at scale. This can lead to significant job losses or restructuring, particularly for workers with limited digital or adaptive skills. While some jobs may be redefined rather than eliminated, the net effect without adequate reskilling and transition support is likely to deepen labor market inequality and exacerbate economic vulnerability among lower-income groups.noteAcemoglu, D., & Restrepo, P. (2019). [Artificial Intelligence, Automation, and Work](https://www.nber.org/system/files/chapters/c14027/c14027.pdf). In Ajay Agrawal, Joshua Gans, and Avi Goldfarb, editors, The Economics of Artificial Intelligence: An Agenda (pp. 197\u2013236)."
+        },
+        {
+            "agent": "research",
+            "url": "https://www.weforum.org/stories/2025/09/responsible-ai-governance-innovations/",
+            "quote": "Section Title: Research reveals 9 essential plays to govern AI responsibly in a multipolar world > ... > Artificial Intelligence > Share:\nContent:\n[](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.weforum.org%2Fstories%2F2025%2F09%2Fresponsible-ai-governance-innovations%2F)\n[](https://twitter.com/intent/tweet?via=wef&text=Research%20reveals%C2%A09%20essential%20plays%20to%20govern%20AI%20responsibly%20in%20a%20multipolar%20world&url=https%3A%2F%2Fwww.weforum.org%2Fstories%2F2025%2F09%2Fresponsible-ai-governance-innovations%2F)\n[](https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.weforum.org%2Fstories%2F2025%2F09%2Fresponsible-ai-governance-innovations%2F)\n[](https://share.flipboard.com/bookmarklet/popout?v=2&title=Research%20reveals%C2%A09%20essential%20plays%20to%20govern%20AI%20responsibly%20in%20a%20multipolar%20world&url=https%3A%2F%2Fwww.weforum.org%2Fstories%2F2025%2F09%2Fresponsible-ai-governance-innovations%2F)\n[](whatsapp://send?text=Research%20reveals%C2%A09%20essential%20plays%20to%20govern%20AI%20responsibly%20in%20a%20multipolar%20world+https%3A%2F%2Fwww.weforum.org%2Fstories%2F2025%2F09%2Fresponsible-ai-governance-innovations%2F)\n[The Big Picture ##### Explore and monitor how Artificial Intelligence is affecting economies, industries and global issues](https://intelligence.weforum.org/topics/a1Gb0000000pTDREA2?tab=publications)"
+        },
+        {
+            "agent": "research",
+            "url": "https://assets.kpmg.com/content/dam/kpmgsites/ae/pdf/the-future-of-ai-governance.pdf.coredownload.inline.pdf",
+            "quote": "privacy or expose sensitive information.\nModel Development\n**\u2022**\n**Build Explainability into Model Architecture:**\nPrioritize models that naturally lend themselves\nto interpretability, making it easier for\nstakeholders to understand, question, and trust\nAI decisions.\nTesting and Evaluation\n**\u2022**\n**Impact Assessment:** Conduct social and ethical\nimpact assessments before deploying AI\nsystems, evaluating potential risks to human\nrights, security, and societal harmony.\n**\u2022**\n**Fairness Audits:** Regularly audit AI systems for\nfairness, ensuring they do not inadvertently\ndiscriminate or violate basic human rights.\nDeployment and Monitoring\n**\u2022**\n**Ongoing Human Oversight:** Implement\ncontinuous human oversight of AI systems,\nespecially in high-stakes areas such as law\nenforcement, healthcare, and financial services,\nto ensure that AI works in harmony with human\nvalues and societal norms.\n**\u2022**\n**Ethical AI Reporting:** Publish regular reports\non the ethical use of AI, detailing any issues or\nconcerns, along with measures taken to address\nthem.\nExtending the Principle to\nAgentic AI Systems\nAgentic AI should foster social harmony,\nnot disruption. Ensure that agents respect\nuser boundaries and operate with contextual\nappropriateness. Avoid designs that encourage\ndependency or manipulation. Support multi-\nstakeholder engagement in evaluating agent use in\npublic spaces. Incorporate ethics-by-design to align\nagents with peaceful coexistence. Monitor agent"
+        },
+        {
+            "agent": "research",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0963868724000672",
+            "quote": "Section Title: Responsible artificial intelligence governance: A review and research framework > Abstract\nContent:\nThe widespread and rapid diffusion of artificial intelligence (AI) into all types of organizational activities necessitates the ethical and responsible deployment of these technologies. Various national and international policies, regulations, and guidelines aim to address this issue, and several organizations have developed frameworks detailing the principles of responsible AI. Nevertheless, the understanding of how such principles can be operationalized in designing, executing, monitoring, and evaluating AI applications is limited. The literature is disparate and lacks cohesion, clarity, and, in some cases, depth. Subsequently, this scoping review aims to synthesize and critically reflect on the research on responsible AI. Based on this synthesis, we developed a conceptual framework for responsible AI governance (defined through structural, relational, and procedural practices), its antecedents, and its effects. The framework serves as the foundation for developing an agenda for future research and critically reflects on the notion of responsible AI governance.\nPrevious article in issue\nNext article in issue"
+        }
+    ],
+    "summary_structured": {
+        "title": "Societal Impact of Artificial Intelligence",
+        "executive_summary": "Artificial intelligence (AI) is profoundly transforming society by reshaping employment, ethical norms, and governance frameworks. AI drives innovations in healthcare, education, economic opportunity, and other domains while raising concerns about bias, privacy, and the potential alienation of human roles. Its impact on workforce dynamics is complex, with both opportunities for high-skilled workers and challenges for entry-level and routine jobs. Responsible governance and ethical frameworks are essential to harness AI\u2019s benefits and mitigate risks.",
+        "key_strategic_insights": [
+            {
+                "insight": "AI reshapes the nature of work and workforce dynamics, benefiting high-skill workers but posing challenges for entry-level and routine jobs.",
+                "sources": [
+                    "https://ieeexplore.ieee.org/document/10743405/",
+                    "https://www.imf.org/en/blogs/articles/2026/01/14/new-skills-and-ai-are-reshaping-the-future-of-work",
+                    "https://www.bls.gov/opub/mlr/2025/article/incorporating-ai-impacts-in-bls-employment-projections.htm"
+                ]
+            },
+            {
+                "insight": "Ethical and governance frameworks for AI are evolving globally to address bias, discrimination, privacy, and transparency, aiming for responsible deployment.",
+                "sources": [
+                    "https://www.sciencedirect.com/science/article/pii/S2949697724000055",
+                    "https://www.sciencedirect.com/science/article/pii/S2666389923002416",
+                    "https://www.ai21.com/knowledge/ai-governance-frameworks/"
+                ]
+            },
+            {
+                "insight": "AI applications contribute positively in various sectors including healthcare, education, climate, and economic opportunity by creating real-world value and social benefits.",
+                "sources": [
+                    "https://ai.google/societal-impact/"
+                ]
+            },
+            {
+                "insight": "The rise of AI in healthcare may improve efficiencies but could also intensify feelings of alienation between patients and healthcare workers while raising concerns about job displacement.",
+                "sources": [
+                    "https://pmc.ncbi.nlm.nih.gov/articles/PMC11344516/"
+                ]
+            }
+        ],
+        "sections": [
+            {
+                "heading": "AI and Workforce Dynamics",
+                "bullets": [
+                    {
+                        "point": "AI adoption elevates demand for new skills and tends to increase wages for high- and low-skill workers while squeezing middle-skill routine jobs.",
+                        "sources": [
+                            "https://www.imf.org/en/blogs/articles/2026/01/14/new-skills-and-ai-are-reshaping-the-future-of-work"
+                        ]
+                    },
+                    {
+                        "point": "Regions with high AI skill demand saw employment declines in AI-vulnerable occupations by 3.6% over five years, indicating disruption at entry levels.",
+                        "sources": [
+                            "https://www.imf.org/en/blogs/articles/2026/01/14/new-skills-and-ai-are-reshaping-the-future-of-work"
+                        ]
+                    },
+                    {
+                        "point": "Generative AI tools such as ChatGPT are reshaping job roles and creating wide public awareness of AI capabilities and impacts on employment.",
+                        "sources": [
+                            "https://www.bls.gov/opub/mlr/2025/article/incorporating-ai-impacts-in-bls-employment-projections.htm"
+                        ]
+                    }
+                ]
+            },
+            {
+                "heading": "Ethical, Legal and Governance Issues",
+                "bullets": [
+                    {
+                        "point": "AI systems must be governed by frameworks addressing bias, discrimination, transparency, privacy, and ethical use to ensure societal trust and fairness.",
+                        "sources": [
+                            "https://www.sciencedirect.com/science/article/pii/S2949697724000055",
+                            "https://www.sciencedirect.com/science/article/pii/S2666389923002416"
+                        ]
+                    },
+                    {
+                        "point": "State-level regulations in the U.S. like the Colorado AI Act aim to prevent algorithmic discrimination in critical areas including healthcare and recruitment.",
+                        "sources": [
+                            "https://www.ai21.com/knowledge/ai-governance-frameworks/"
+                        ]
+                    },
+                    {
+                        "point": "Institutionalizing ethical AI frameworks is crucial for responsible AI adoption across organizations.",
+                        "sources": [
+                            "https://professional.dce.harvard.edu/blog/building-a-responsible-ai-framework-5-key-principles-for-organizations/"
+                        ]
+                    }
+                ]
+            },
+            {
+                "heading": "AI's Broader Social Applications and Benefits",
+                "bullets": [
+                    {
+                        "point": "AI technologies are applied to address societal challenges in healthcare, education, climate, and economic opportunity with partnerships focusing on underserved communities.",
+                        "sources": [
+                            "https://ai.google/societal-impact/"
+                        ]
+                    },
+                    {
+                        "point": "AI fairness is essential for trust and adoption, ensuring equitable treatment in applications like customer service, loan approvals, and healthcare.",
+                        "sources": [
+                            "https://www.blueprism.com/resources/blog/bias-fairness-ai/"
+                        ]
+                    }
+                ]
+            },
+            {
+                "heading": "Challenges and Concerns",
+                "bullets": [
+                    {
+                        "point": "The integration of AI in healthcare risks alienating patients and healthcare workers, potentially reducing patient trust and marginalizing human care providers.",
+                        "sources": [
+                            "https://pmc.ncbi.nlm.nih.gov/articles/PMC11344516/"
+                        ]
+                    },
+                    {
+                        "point": "AI privacy concerns grow as ubiquitous data collection by AI systems risks impacting civil rights and personal control over data.",
+                        "sources": [
+                            "https://www.ibm.com/think/insights/ai-privacy"
+                        ]
+                    },
+                    {
+                        "point": "The widespread societal impact of AI includes far-reaching ethical effects on human autonomy and behavior.",
+                        "sources": [
+                            "https://pmc.ncbi.nlm.nih.gov/articles/PMC8576577/"
+                        ]
+                    }
+                ]
+            },
+            {
+                "heading": "Limitations",
+                "bullets": [
+                    {
+                        "point": "While AI's societal impact is broad and significant, existing research often presents early-stage findings and theoretical frameworks without extensive empirical validation across all societal domains.",
+                        "sources": [
+                            "https://ojs.aaai.org/index.php/AAAI/issue/view/650"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "references": [
+            "https://ieeexplore.ieee.org/document/10743405/",
+            "https://www.imf.org/en/blogs/articles/2026/01/14/new-skills-and-ai-are-reshaping-the-future-of-work",
+            "https://www.bls.gov/opub/mlr/2025/article/incorporating-ai-impacts-in-bls-employment-projections.htm",
+            "https://www.sciencedirect.com/science/article/pii/S2949697724000055",
+            "https://www.sciencedirect.com/science/article/pii/S2666389923002416",
+            "https://www.ai21.com/knowledge/ai-governance-frameworks/",
+            "https://professional.dce.harvard.edu/blog/building-a-responsible-ai-framework-5-key-principles-for-organizations/",
+            "https://ai.google/societal-impact/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC11344516/",
+            "https://www.blueprism.com/resources/blog/bias-fairness-ai/",
+            "https://www.ibm.com/think/insights/ai-privacy",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC8576577/",
+            "https://ojs.aaai.org/index.php/AAAI/issue/view/650"
+        ]
+    },
+    "final_report": "# Societal Impact of Artificial Intelligence\n\n## Executive Summary\n\nNo executive summary available.\n\n**Key Strategic Insights:**\n\n* Evidence was insufficient to extract clear strategic insights.\n\n## AI and Workforce Dynamics\n\n* AI adoption elevates demand for new skills and tends to increase wages for high- and low-skill workers while squeezing middle-skill routine jobs. (Source: https://www.imf.org/en/blogs/articles/2026/01/14/new-skills-and-ai-are-reshaping-the-future-of-work)\n* Regions with high AI skill demand saw employment declines in AI-vulnerable occupations by 3.6% over five years, indicating disruption at entry levels. (Source: https://www.imf.org/en/blogs/articles/2026/01/14/new-skills-and-ai-are-reshaping-the-future-of-work)\n* Generative AI tools such as ChatGPT are reshaping job roles and creating wide public awareness of AI capabilities and impacts on employment. (Source: https://www.bls.gov/opub/mlr/2025/article/incorporating-ai-impacts-in-bls-employment-projections.htm)\n\n## Ethical, Legal and Governance Issues\n\n* AI systems must be governed by frameworks addressing bias, discrimination, transparency, privacy, and ethical use to ensure societal trust and fairness. (Sources: https://www.sciencedirect.com/science/article/pii/S2949697724000055, https://www.sciencedirect.com/science/article/pii/S2666389923002416)\n* State-level regulations in the U.S. like the Colorado AI Act aim to prevent algorithmic discrimination in critical areas including healthcare and recruitment. (Source: https://www.ai21.com/knowledge/ai-governance-frameworks/)\n* Institutionalizing ethical AI frameworks is crucial for responsible AI adoption across organizations. (Source: https://professional.dce.harvard.edu/blog/building-a-responsible-ai-framework-5-key-principles-for-organizations/)\n\n## AI's Broader Social Applications and Benefits\n\n* AI technologies are applied to address societal challenges in healthcare, education, climate, and economic opportunity with partnerships focusing on underserved communities. (Source: https://ai.google/societal-impact/)\n* AI fairness is essential for trust and adoption, ensuring equitable treatment in applications like customer service, loan approvals, and healthcare. (Source: https://www.blueprism.com/resources/blog/bias-fairness-ai/)\n\n## Challenges and Concerns\n\n* The integration of AI in healthcare risks alienating patients and healthcare workers, potentially reducing patient trust and marginalizing human care providers. (Source: https://pmc.ncbi.nlm.nih.gov/articles/PMC11344516/)\n* AI privacy concerns grow as ubiquitous data collection by AI systems risks impacting civil rights and personal control over data. (Source: https://www.ibm.com/think/insights/ai-privacy)\n* The widespread societal impact of AI includes far-reaching ethical effects on human autonomy and behavior. (Source: https://pmc.ncbi.nlm.nih.gov/articles/PMC8576577/)\n\n## Limitations\n\n* While AI's societal impact is broad and significant, existing research often presents early-stage findings and theoretical frameworks without extensive empirical validation across all societal domains. (Source: https://ojs.aaai.org/index.php/AAAI/issue/view/650)\n\n## References\n\n1. *Fetched web page*. https://ieeexplore.ieee.org/document/10743405/\n2. *Fetched web page*. https://www.imf.org/en/blogs/articles/2026/01/14/new-skills-and-ai-are-reshaping-the-future-of-work\n3. *Fetched web page*. https://www.bls.gov/opub/mlr/2025/article/incorporating-ai-impacts-in-bls-employment-projections.htm\n4. *Fetched web page*. https://www.sciencedirect.com/science/article/pii/S2949697724000055\n5. *Fetched web page*. https://www.sciencedirect.com/science/article/pii/S2666389923002416\n6. *Fetched web page*. https://www.ai21.com/knowledge/ai-governance-frameworks/\n7. *Fetched web page*. https://professional.dce.harvard.edu/blog/building-a-responsible-ai-framework-5-key-principles-for-organizations/\n8. *Fetched web page*. https://ai.google/societal-impact/\n9. *Fetched web page*. https://pmc.ncbi.nlm.nih.gov/articles/PMC11344516/\n10. *Fetched web page*. https://www.blueprism.com/resources/blog/bias-fairness-ai/\n11. *Fetched web page*. https://www.ibm.com/think/insights/ai-privacy\n12. *Fetched web page*. https://pmc.ncbi.nlm.nih.gov/articles/PMC8576577/\n13. *Fetched web page*. https://ojs.aaai.org/index.php/AAAI/issue/view/650"
+}
