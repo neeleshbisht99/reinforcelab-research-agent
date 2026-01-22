@@ -166,9 +166,200 @@ async def run_exploration(state):
             state["evidence"].extend(ev)
     dedup_evidence(state)
 
+
+def summarizer_agent(state):
+    prompt = state["prompt"]
+    evidence = state.get("evidence", []) or []
+
+    MAX_ITEMS = 80 #get from config
+    MAX_CHARS = 18000 #get from config
+
+    trimmed = []
+    total = 0
+    for e in evidence[:MAX_ITEMS]:
+        item = {
+            "agent": e.get("agent", ""),
+            "url": e.get("url", ""),
+            "quote": (e.get("quote", "") or "").strip()
+        }
+        s = json.dumps(item, ensure_ascii=False)
+        if total + len(s) > MAX_CHARS: break
+        trimmed.append(item)
+        total += len(s)
+
+    system = (
+        "You are a careful research synthesizer.\n"
+        "Use ONLY the provided evidence.\n"
+        "Do not invent facts.\n"
+        "Prefer concrete claims with citations."
+    )
+
+    user = f"""
+    Topic:
+    {prompt}
+
+    Evidence (JSON list of {{agent,url,quote}}):
+    {json.dumps(trimmed, ensure_ascii=False, indent=2)}
+
+    Produce ONLY valid JSON (no markdown, no extra text) with this schema:
+
+    {{
+    "title": "short title",
+    "main_summary": "2-5 sentences max",
+    "key_insights": [
+        {{"insight": "1-2 sentence insight", "sources": ["url1","url2"]}}
+    ],
+    "sections": [
+        {{
+        "heading": "Section heading",
+        "bullets": [
+            {{"point": "1-2 sentence point", "sources": ["url"]}}
+        ]
+        }}
+    ],
+    "tables": [
+        {{
+        "title": "Table title",
+        "columns": ["Col1","Col2","Col3"],
+        "rows": [
+            ["...", "...", "..."]
+        ],
+        "sources": ["url1"]
+        }}
+    ],
+    "references": ["unique_url1", "unique_url2"]
+    }}
+
+    Rules:
+    - Every insight/point must include at least 1 source URL from the evidence list.
+    - Only use URLs present in evidence.
+    - If evidence is weak, say so in main_summary and create a section named "Limitations".
+    """.strip()
+
+    resp = client.responses.create(
+        model=MODEL,
+        input=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+    )
+
+    text = (resp.output_text or "").strip()
+    try:
+        state["summary_structured"] = json.loads(text)
+    except Exception:
+        refs = []
+        for e in trimmed:
+            if e.get("url"): refs.append(e["url"])
+        refs = list(dict.fromkeys(refs))
+        state["summary_structured"] = {
+            "title": prompt[:80],
+            "main_summary": "Evidence collected, but summarization JSON parsing failed.",
+            "key_insights": [],
+            "sections": [{"heading": "findings", "bullets": []}],
+            "tables": [],
+            "references": refs[:30],
+        }
+
+
+def markdown_agent(state):
+    prompt = state["prompt"]
+    summary = state.get("summary_structured", {}) or {}
+
+    title = (summary.get("title") or prompt).strip()
+    exec_sum = (summary.get("main_summary") or "").strip()
+    insights = summary.get("key_insights") or []
+    sections = summary.get("sections") or []
+    tables = summary.get("tables") or []
+
+    refs = summary.get("references") or []
+    if not refs:
+        seen = set()
+        for e in (state.get("evidence", []) or []):
+            u = e.get("url")
+            if u and u not in seen:
+                seen.add(u)
+                refs.append(u)
+        refs = refs[:40]
+
+    def cite_urls(urls):
+        urls = [u for u in (urls or []) if u]
+        if not urls: return ""
+        if len(urls) == 1: return f"(Source: {urls[0]})"
+        return "(Sources: " + ", ".join(urls[:3]) + ")"
+
+    md = []
+    md.append(f"# {title}")
+    md.append("")
+    md.append("## Executive Summary")
+    md.append("")
+    md.append(exec_sum if exec_sum else "No executive summary available.")
+    md.append("")
+
+    # Key Strategic Insights block
+    md.append("**Key Strategic Insights:**")
+    md.append("")
+    if insights:
+        for it in insights[:8]:
+            ins = (it.get("insight") or "").strip()
+            src = cite_urls(it.get("sources"))
+            if ins:
+                md.append(f"* **{ins}** {src}".rstrip())
+    else:
+        md.append("* Evidence was insufficient to extract clear strategic insights.")
+    md.append("")
+
+    # Main sections
+    for sec in sections[:12]:
+        heading = (sec.get("heading") or "").strip()
+        bullets = sec.get("bullets") or []
+        if not heading:
+            continue
+        md.append(f"## {heading}")
+        md.append("")
+        if bullets:
+            for b in bullets[:12]:
+                pt = (b.get("point") or "").strip()
+                src = cite_urls(b.get("sources"))
+                if pt:
+                    md.append(f"* {pt} {src}".rstrip())
+        else:
+            md.append("* (No extracted points.)")
+        md.append("")
+
+    # Tables
+    for tb in tables[:6]:
+        ttitle = (tb.get("title") or "").strip()
+        cols = tb.get("columns") or []
+        rows = tb.get("rows") or []
+        src = cite_urls(tb.get("sources"))
+
+        if ttitle:
+            md.append(f"**Table: {ttitle}** {src}".rstrip())
+            md.append("")
+        if cols and rows:
+            md.append("| " + " | ".join(cols) + " |")
+            md.append("| " + " | ".join([":---"] * len(cols)) + " |")
+            for r in rows[:12]:
+                r = [("" if x is None else str(x)) for x in r]
+                r = (r + [""] * len(cols))[:len(cols)]
+                md.append("| " + " | ".join(r) + " |")
+            md.append("")
+
+    # References
+    md.append("## References")
+    md.append("")
+    for i, u in enumerate(refs, 1):
+        md.append(f"{i}. *Fetched web page*. {u}")
+
+    state["final_report"] = "\n".join(md).strip()
+
 async def run_controller(state):
-    planner_agent(state)
-    await run_exploration(state)
+    # planner_agent(state)
+    # await run_exploration(state)
+    # summarizer_agent(state)
+    markdown_agent(state)
+
 
 
 if __name__ == "__main__":
