@@ -1,6 +1,9 @@
 import re
+import logging
 from dataclasses import dataclass
 from typing import Dict, List, Tuple
+
+logger = logging.getLogger("safety")
 
 @dataclass
 class SafetyResult:
@@ -54,24 +57,35 @@ class PromptInjectionGuard:
 
     def validate_prompt(self, prompt: str) -> SafetyResult:
         matches = ([{"where": "prompt", **m} for m in self._scan_text(prompt)])
-
+        logger.info(
+            "Safety check: validating prompt | preview=%r",
+            (prompt or "")[:100],
+        )
         if matches:
+            logger.warning(
+                "Prompt blocked by safety guard | patterns=%s | preview=%r",
+                [m["pattern"] for m in matches],
+                prompt[:100],
+            )
             return SafetyResult(
                 blocked=True,
                 reason="Possible prompt-injection detected in prompt/evidence. Refusing to follow untrusted instructions.",
                 matches=matches[:20],
             )
-
+        logger.info("Prompt validation passed")
         return SafetyResult(blocked=False, reason="", matches=[])
 
     
 
     def validate_planner(self, data: dict) -> SafetyResult:
+        logger.info("Safety check: validating planner output")
         if not isinstance(data, dict):
+            logger.warning("Planner validation failed: output not a dict")
             return SafetyResult(True, "Planner output is not a dict.", [])
 
         tasks = data.get("tasks")
         if not isinstance(tasks, list) or not tasks:
+            logger.warning("Planner validation failed: missing or empty tasks")
             return SafetyResult(True, "Planner produced no tasks.", [])
 
         for i, t in enumerate(tasks):
@@ -85,8 +99,12 @@ class PromptInjectionGuard:
                 return SafetyResult(True, "Planner produced invalid task format.", [{"idx": i}])
 
             if self.plan_patterns.search(task):
+                logger.warning(
+                    "Planner validation failed: unsafe task text | idx=%d | preview=%r",
+                    i, task[:80]
+                )
                 return SafetyResult(True, "Planner task contains unsafe instructions.", [
                     {"idx": i, "snippet": task[:200]}
                 ])
-
+        logger.info("Planner validation passed")
         return SafetyResult(False, "", [])

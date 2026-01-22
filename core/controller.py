@@ -1,4 +1,6 @@
 from typing import Any, Dict
+import logging
+import time
 
 from core.models import init_state
 from core.config import load_settings, OpenAIConfig, ParallelConfig
@@ -11,6 +13,9 @@ from agenthub.explorer import ExplorerAgent
 from agenthub.summarizer import SummarizerAgent
 from agenthub.markdown import MarkdownAgent
 from core.safety import PromptInjectionGuard, blocked_prompt_response
+
+logger = logging.getLogger("research")
+logging.basicConfig(level=logging.INFO)
 
 class ResearchController:
     def __init__(self):
@@ -48,12 +53,32 @@ class ResearchController:
 
         state = init_state(prompt)
 
+        timings = {}
+        t = time.time()
+
         self.planner.run(state)
         plan_res = self.guard.validate_planner(state)
         if plan_res.blocked:
             return blocked_prompt_response(plan_res)
+        timings["planner_s"] = round(time.time() - t, 3)
+
+        t = time.time()
         await self.explorer.run(state)
+        timings["explorer_s"] = round(time.time() - t, 3)
+
+        t = time.time()
         self.summarizer.run(state)
+        timings["summarizer_s"] = round(time.time() - t, 3)
+
+        t = time.time()
         self.markdown.run(state)
+        timings["markdown_s"] = round(time.time() - t, 3)
+
+        logger.info({
+            "timings": timings,
+            "tasks": len(state.get("tasks", [])),
+            "evidence": len(state.get("evidence", [])),
+            "blocked": state.get("safety", {}).get("blocked", False),
+        })
 
         return state
