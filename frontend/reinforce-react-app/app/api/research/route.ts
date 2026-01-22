@@ -5,7 +5,8 @@ export async function POST(req: NextRequest) {
   // return NextResponse.json({ markdown: final_report });
   const { prompt } = await req.json();
 
-  const r = await fetch("http://localhost:8000/research", {
+  const base = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
+  const r = await fetch(`${base}/research`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ prompt }),
