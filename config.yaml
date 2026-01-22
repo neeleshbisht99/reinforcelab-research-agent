@@ -1,0 +1,13 @@
+models:
+  openai: gpt-4.1-mini
+
+parallel:
+  max_urls_per_task: 5
+  max_search_results: 10
+  max_search_excerpt_chars: 200
+  max_extract_chars: 1000
+  beta_version: search-extract-2025-10-10
+
+evidence:
+  max_items: 80
+  max_chars: 18000
