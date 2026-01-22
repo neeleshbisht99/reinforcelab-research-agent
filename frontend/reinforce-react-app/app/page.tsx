@@ -3,6 +3,7 @@
 import { useState } from "react";
 import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
+import { Skeleton } from "@/components/ui/skeleton"
 
 export default function Home() {
   const [prompt, setPrompt] = useState("");
@@ -44,11 +45,23 @@ export default function Home() {
       </div>
 
       <div className="mt-6">
-          {md ? (
-            <div className="markdown-body rounded-lg border bg-white p-6">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{md}</ReactMarkdown>
-            </div>
-          ) : null}
+        {loading && (
+          <div className="space-y-4">
+            <Skeleton className="h-8 w-3/4" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-5/6" />
+            <Skeleton className="h-64 w-full" />
+          </div>
+        )}
+
+        {!loading && md && (
+          <div className="markdown-body rounded-lg border bg-white p-6">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {md}
+            </ReactMarkdown>
+          </div>
+        )}
       </div>
     </div>
   );
