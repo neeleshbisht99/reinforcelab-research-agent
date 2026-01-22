@@ -17,6 +17,16 @@ class Settings:
     max_evidence_items: int
     max_evidence_chars: int
 
+    max_refs: int
+    max_insights: int
+    max_claims: int
+    max_sections: int
+    max_tables: int
+    max_section_bullets: int
+    max_table_rows: int
+    max_claim_evidence: int
+    max_evidence_per_task: int
+
 
 def load_settings() -> Settings:
     return Settings(
@@ -32,6 +42,16 @@ def load_settings() -> Settings:
 
         max_evidence_items=cfg["evidence"]["max_items"],
         max_evidence_chars=cfg["evidence"]["max_chars"],
+
+        max_refs=cfg["report"]["max_refs"],
+        max_insights=cfg["report"]["max_insights"],
+        max_claims=cfg["report"]["max_claims"],
+        max_sections=cfg["report"]["max_sections"],
+        max_tables=cfg["report"]["max_tables"],
+        max_section_bullets=cfg["report"]["max_section_bullets"],
+        max_table_rows=cfg["report"]["max_table_rows"],
+        max_claim_evidence=cfg["report"]["max_claim_evidence"],
+        max_evidence_per_task=cfg["report"]["max_evidence_per_task"],
     )
 
 

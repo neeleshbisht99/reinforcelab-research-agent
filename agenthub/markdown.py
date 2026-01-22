@@ -14,8 +14,10 @@ class MarkdownAgent:
         insights = summary.get("key_insights") or []
         sections = summary.get("sections") or []
         tables = summary.get("tables") or []
+        claims = summary.get("claims") or []
 
         refs = summary.get("references") or []
+        refs = refs[: self.settings.max_refs]
         if not refs:
             seen = set()
             for e in (state.get("evidence", []) or []):
@@ -36,15 +38,15 @@ class MarkdownAgent:
         md = []
         md.append(f"# {title}")
         md.append("")
-        md.append("## Executive Summary")
+        md.append("## Summary")
         md.append("")
         md.append(exec_sum if exec_sum else "No executive summary available.")
         md.append("")
 
-        md.append("**Key Strategic Insights:**")
+        md.append("**Key Insights:**")
         md.append("")
         if insights:
-            for it in insights[:8]:
+            for it in insights[:self.settings.max_insights]:
                 ins = (it.get("insight") or "").strip()
                 src = cite_urls(it.get("sources"))
                 if ins:
@@ -53,7 +55,23 @@ class MarkdownAgent:
             md.append("* Evidence was insufficient to extract clear strategic insights.")
         md.append("")
 
-        for sec in sections[:12]:
+        if claims:
+            md.append("## Claims and Evidence")
+            md.append("")
+            for c in claims[:self.settings.max_claims]:
+                claim = (c.get("claim") or "").strip()
+                evidence = c.get("evidence") or []
+                if claim:
+                    md.append(f"**Claim:** {claim}")
+                    for ev in evidence[:self.settings.max_claim_evidence]:
+                        q = (ev.get("quote") or "").strip()
+                        src = ev.get("source")
+                        if q and src:
+                            md.append(f"> {q}")
+                            md.append(f"> *(Source: {src})*")
+                    md.append("")
+                    
+        for sec in sections[:self.settings.max_sections]:
             heading = (sec.get("heading") or "").strip()
             bullets = sec.get("bullets") or []
             if not heading:
@@ -61,7 +79,7 @@ class MarkdownAgent:
             md.append(f"## {heading}")
             md.append("")
             if bullets:
-                for b in bullets[:12]:
+                for b in bullets[:self.settings.max_section_bullets]:
                     pt = (b.get("point") or "").strip()
                     src = cite_urls(b.get("sources"))
                     if pt:
@@ -70,7 +88,7 @@ class MarkdownAgent:
                 md.append("* (No extracted points.)")
             md.append("")
 
-        for tb in tables[:6]:
+        for tb in tables[:self.settings.max_tables]:
             ttitle = (tb.get("title") or "").strip()
             cols = tb.get("columns") or []
             rows = tb.get("rows") or []
@@ -82,7 +100,7 @@ class MarkdownAgent:
             if cols and rows:
                 md.append("| " + " | ".join(cols) + " |")
                 md.append("| " + " | ".join([":---"] * len(cols)) + " |")
-                for r in rows[:12]:
+                for r in rows[:self.settings.max_table_rows]:
                     r = [("" if x is None else str(x)) for x in r]
                     r = (r + [""] * len(cols))[:len(cols)]
                     md.append("| " + " | ".join(r) + " |")
@@ -91,6 +109,6 @@ class MarkdownAgent:
         md.append("## References")
         md.append("")
         for i, u in enumerate(refs, 1):
-            md.append(f"{i}. *Fetched web page*. {u}")
+            md.append(f"{i}. {u}")
 
         state["final_report"] = "\n".join(md).strip()

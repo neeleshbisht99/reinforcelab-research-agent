@@ -25,6 +25,7 @@ class PlannerAgent:
             Rules:
             - tag must be exactly one of: "research", "industry", "general"
             - tasks should be parallelizable
+            - Produce at most 4 tasks total.
 
             The example below is ONLY to show the level of detail and structure.
             Do NOT copy the example content.

@@ -11,3 +11,14 @@ parallel:
 evidence:
   max_items: 80
   max_chars: 18000
+
+report:
+  max_refs: 10
+  max_insights: 5
+  max_claims: 3
+  max_sections: 5
+  max_tables: 2
+  max_section_bullets: 5
+  max_table_rows: 5
+  max_claim_evidence: 3
+  max_evidence_per_task: 5

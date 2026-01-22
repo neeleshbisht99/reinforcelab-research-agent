@@ -45,6 +45,14 @@ class SummarizerAgent:
             {{
             "title": "short title",
             "main_summary": "2-5 sentences max",
+            "claims": [
+                {{
+                "claim": "1-2 sentence claim",
+                "evidence": [
+                    {{"quote": "copied excerpt", "source": "url"}}
+                ]
+                }}
+            ],
             "key_insights": [
             {{"insight": "1-2 sentence insight", "sources": ["url1","url2"]}}
             ],

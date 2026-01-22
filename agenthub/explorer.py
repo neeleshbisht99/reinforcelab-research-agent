@@ -55,6 +55,8 @@ class ExplorerAgent:
             excerpts = self.get_field(r, "excerpts", []) or []
             for ex in excerpts:
                 evidence.append({"agent": agent_tag, "url": url, "quote": ex})
+                if len(evidence) >= self.settings.max_evidence_per_task:
+                    return log_item, evidence
 
         return log_item, evidence
 
